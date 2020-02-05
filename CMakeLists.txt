@@ -19,7 +19,6 @@ set (SOURCE
 set (BINARY_NAME binary_ring)
 
 find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
-find_package(Threads)
 
 add_executable(${BINARY_NAME} ${SOURCE})
 
