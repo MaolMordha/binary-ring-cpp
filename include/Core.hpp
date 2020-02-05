@@ -6,9 +6,6 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
-#include <condition_variable>
-#include <mutex>
-#include <thread>
 #include <vector>
 
 namespace BinaryRing {
