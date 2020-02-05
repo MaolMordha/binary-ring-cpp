@@ -19,7 +19,7 @@ class ParticleCluster: public sf::Drawable {
             ParticleConfiguration configuration
         );
 
-        void resize(sf::Vector2u dimensions, bool blackout) noexcept;
+        void resize(sf::Vector2u dimensions) noexcept;
         void update(bool blackout) noexcept;
         void draw(
             sf::RenderTarget & target,

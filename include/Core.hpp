@@ -21,12 +21,11 @@ namespace BinaryRing {
                 unsigned int framerate,
                 unsigned int maxAge
             );
-            ~Core();
+            ~Core() = default;
 
             int run();
 
         private:
-            void updateClusters() noexcept;
             void handleEvents() noexcept;
             void switchBlackout() noexcept;
             void createClusters(
@@ -35,9 +34,6 @@ namespace BinaryRing {
                 ParticleConfiguration configuration
             );
 
-            void createClusterWorkers(std::size_t workerNumber) noexcept;
-            void workerRoutine(std::size_t index) noexcept;
-
             // Window and program flow
             sf::RenderWindow window_;
             bool paused_ = false;
@@ -45,13 +41,6 @@ namespace BinaryRing {
             // Particles
             std::vector<ParticleCluster> clusters_;
             bool blackout_;
-
-            // Threads
-            std::vector<bool> clusterState_;
-            std::vector<std::thread> clusterWorkers_;
-            std::condition_variable conditionVariable_;
-            std::mutex mutex_;
-            bool stop_ = false;
     };
 };
 

@@ -28,6 +28,18 @@ ParticleCluster::ParticleCluster(
     }
 }
 
+void ParticleCluster::resize(sf::Vector2u dimensions) noexcept
+{
+    configuration_.origin = {
+        static_cast<float>(dimensions.x) / 2,
+        static_cast<float>(dimensions.y) / 2
+    };
+    configuration_.blackout = false;
+    for (auto & particle: particles_) {
+        particle.reset();
+    }
+}
+
 void ParticleCluster::update(bool blackout) noexcept
 {
     configuration_.blackout = blackout;
@@ -40,18 +52,6 @@ void ParticleCluster::draw(sf::RenderTarget & target, sf::RenderStates) const
 {
     for (const auto & particle: particles_) {
         target.draw(particle);
-    }
-}
-
-void ParticleCluster::resize(sf::Vector2u dimensions, bool blackout) noexcept
-{
-    configuration_.origin = {
-        static_cast<float>(dimensions.x) / 2,
-        static_cast<float>(dimensions.y) / 2
-    };
-    configuration_.blackout = false;
-    for (auto & particle: particles_) {
-        particle.reset();
     }
 }
 
