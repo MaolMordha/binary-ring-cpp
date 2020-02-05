@@ -22,4 +22,4 @@ find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
 
 add_executable(${BINARY_NAME} ${SOURCE})
 
-target_link_libraries(${BINARY_NAME} sfml-graphics ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(${BINARY_NAME} sfml-graphics)
